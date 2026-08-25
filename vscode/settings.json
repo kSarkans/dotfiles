@@ -1,0 +1,342 @@
+{
+    /***********************************************************************/
+    "extensions.ignoreRecommendations": true,
+    /***********************************************************************/
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.list.openMode": "doubleClick",
+    "workbench.editor.defaultBinaryEditor": "default",
+    "workbench.editorAssociations": {
+        "{hexdiff}:/**/*.*": "hexEditor.hexedit",
+        "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc": "default",
+        "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.ui": "default"
+    },
+    "workbench.activityBar.location": "top",
+    "workbench.iconTheme": "ayu",
+    "workbench.list.smoothScrolling": true,
+    "workbench.reduceTransparency": "auto",
+    "workbench.activityBar.compact": true,
+    "workbench.tree.expandMode": "singleClick",
+    /***********************************************************************/
+    "editor.mouseWheelZoom": true,
+    "editor.wordWrap": "on",
+    // "editor.fontFamily": "'BigBlueTermPlus Nerd Font', 'monospace', monospace",
+    // "editor.fontFamily": "'CaskaydiyaMono Nerd Font', 'monospace', monospace",
+    "editor.fontFamily": "'ZedMono Nerd Font', 'monospace', monospace",
+    "editor.fontVariations": false,
+    "editor.fontLigatures": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorSurroundingLines": 10,
+    "editor.cursorWidth": 2,
+    "editor.tabCompletion": "on",
+    "editor.smoothScrolling": true,
+    "editor.lineNumbers": "relative",
+    /***********************************************************************/
+    "explorer.compactFolders": false,
+    "explorer.autoReveal": "focusNoScroll",
+    /***********************************************************************/
+    "catppuccin-icons.hidesExplorerArrows": true,
+    "material-icon-theme.hidesExplorerArrows": true,
+    "material-icon-theme.folders.customClones": [
+        {
+            "name": "cmake-folder",
+            "base": "generator",
+            "color": "red-400",
+            "lightColor": "red-700",
+            "folderNames": [
+                "cmake",
+                "CMake"
+            ],
+            "rootFolderNames": [
+                "cmake",
+                "CMake"
+            ]
+        },
+        {
+            "name": "targets-folder",
+            "base": "target",
+            "color": "green-500",
+            "lightColor": "green-700",
+            "folderNames": [
+                "targets",
+                "Targets",
+            ],
+            "rootFolderNames": [
+                "targets",
+                "Targets",
+            ]
+        },
+        {
+            "name": "platform-folder",
+            "base": "shared",
+            "color": "indigo-400",
+            "lightColor": "indigo-600",
+            "folderNames": [
+                "platform",
+                "Platform",
+            ],
+            "rootFolderNames": [
+                "platform",
+                "Platform",
+            ]
+        },
+        {
+            "name": "engine-folder",
+            "base": "api",
+            "color": "teal-400",
+            "lightColor": "teal-600",
+            "folderNames": [
+                "engine",
+                "Engine",
+            ],
+            "rootFolderNames": [
+                "engine",
+                "Engine",
+            ]
+        },
+        {
+            "name": "framework-folder",
+            "base": "sandbox",
+            "color": "teal-400",
+            "lightColor": "teal-600",
+            "folderNames": [
+                "framework",
+                "Framework",
+            ],
+            "rootFolderNames": [
+                "framework",
+                "Framework",
+            ]
+        },
+        {
+            "name": "thirdparty-folder",
+            "base": "lib",
+            "color": "blue-600",
+            "lightColor": "blue-800",
+            "folderNames": [
+                "thirdparty",
+                "ThirdParty",
+                "3rdparty",
+                "3rdParty",
+                "external",
+                "External",
+            ],
+            "rootFolderNames": [
+                "thirdparty",
+                "ThirdParty",
+                "3rdparty",
+                "3rdParty",
+                "external",
+                "External",
+            ]
+        }
+    ],
+    /***********************************************************************/
+    "files.associations": {
+        "*.gdextension": "ini",
+        "*.ltx": "ini",
+        ".clang-format": "yaml",
+        ".clang-tidy": "yaml",
+        "*.inc": "cpp",
+        "*.godot": "ini",
+        "*.ui": "xml",
+        "*.lang": "xml",
+        "SCsub": "python",
+        "*.script": "lua",
+        ".clangd": "yaml",
+        "fust.*": "ini",
+        "*.cmake": "cmake"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/*.uid": false,
+        "**/*.import": false,
+        "**/.godot": false,
+    },
+    /***********************************************************************/
+    "window.restoreWindows": "none",
+    "window.newWindowProfile": "Default",
+    "C_Cpp.default.compilerPath": "/usr/bin/clang++",
+    "C_Cpp.default.compileCommands": [
+        "${workspaceFolder}/build/compile_commands.json",
+        "${workspaceFolder}/.vscode/compile_commands.json",
+        "${workspaceFolder}/compile_commands.json"
+    ],
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.mergeConfigurations": true,
+    /***********************************************************************/
+    "qt-cpp.doNotShowCMakePresetWarning": true,
+    /***********************************************************************/
+    "cmake.generator": "Ninja Multi-Config",
+    "cmake.showConfigureWithDebuggerNotification": false,
+    "cmake.debugConfig": {
+        "type": "lldb",
+        "request": "launch",
+        "externalConsole": false,
+        "cwd": "${command:cmake.launchTargetDirectory}"
+    },
+    "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json",
+    "cmake.defaultActiveFolder": "${workspaceFolder}",
+    "cmake.autoSelectActiveFolder": false,
+    "cmake.deleteBuildDirOnCleanConfigure": true,
+    "cmake.setBuildTypeOnMultiConfig": true,
+    "cmake.options.statusBarVisibility": "compact",
+    "cmake.revealLog": "never",
+    /***********************************************************************/
+    "makefile.configureOnOpen": true,
+    /***********************************************************************/
+    "git.confirmSync": false,
+    "git.openRepositoryInParentFolders": "never",
+    /***********************************************************************/
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    /***********************************************************************/
+    "terminal.integrated.fontLigatures.enabled": true,
+    /***********************************************************************/
+    "debug.console.fontSize": 11,
+    "debug.breakpointsView.presentation": "tree",
+    /***********************************************************************/
+    "lldb.launch.env": {
+        "TERM": "xterm-256color"
+    },
+    "lldb.launch.terminal": "external",
+    /***********************************************************************/
+    "hexeditor.columnWidth": 16,
+    "hexeditor.showDecodedText": true,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
+    "maven.executable.path": "/usr/bin/mvn",
+    "dotnet.codeLens.enableReferencesCodeLens": false,
+    "dotnet.completion.triggerCompletionInArgumentLists": false,
+    "dotnet.inlayHints.enableInlayHintsForParameters": true,
+    "csharp.debug.console": "integratedTerminal",
+    "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "none",
+    /***********************************************************************/
+    "godot.csharp.executablePath": "/home/ksarkans/.local/bin/godot-mono",
+    "godotTools.editorPath.godot4": "/home/ksarkans/.local/bin/godot-mono",
+    /***********************************************************************/
+    "window.commandCenter": false,
+    "sourcecraft-code-assist.allowedCommands": [
+        "git log",
+        "git diff",
+        "git show",
+        "npm test",
+        "npm install",
+        "tsc"
+    ],
+    "sourcecraft-code-assist.deniedCommands": [],
+    /***********************************************************************/
+    "vim.highlightedyank.enable": true,
+    "vim.useSystemClipboard": true,
+    "vim.disableExtension": false,
+    "doxdocgen.generic.authorEmail": "slowianstwo.1@gmail.com",
+    "doxdocgen.generic.authorName": "Sergei \"Sarkans\" Vishnevecki",
+    "doxdocgen.generic.authorTag": "@author {author}",
+    "editor.inlayHints.enabled": "off",
+    "stm32cube-ide-core.enableOfflineMode": true,
+    "cmake.environment": {
+        "PATH": "/home/ksarkans/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64:/home/ksarkans/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.2.1-linux-x64/resources/binaries/linux/x86_64:${env.PATH}"
+    },
+    "stm32cube-ide-build-cmake.ignoreCubeProjectDiscovery": true,
+    "material-icon-theme.folders.theme": "specific",
+    "liveshare.languages.allowGuestCommandControl": true,
+    "[cmake]": {},
+    "cmake.modifyLists.addNewSourceFiles": "no",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "files.autoGuessEncoding": true,
+    "window.controlsStyle": "custom",
+    "window.dialogStyle": "custom",
+    "window.menuBarVisibility": "visible",
+    "editor.minimap.autohide": "none",
+    "editor.suggest.showStatusBar": true,
+    "editor.wordBasedSuggestions": "matchingDocuments",
+    "C_Cpp.autocompleteAddParentheses": true,
+    "C_Cpp.default.cppStandard": "c++23",
+    "C_Cpp.default.cStandard": "c17",
+    "C_Cpp.inactiveRegionOpacity": 0.5,
+    "C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
+    "C_Cpp.inlayHints.parameterNames.enabled": true,
+    "C_Cpp.inlayHints.referenceOperator.enabled": true,
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.doxygen.generateOnType": false,
+    "oneDarkPro.bold": true,
+    /***********************************************************************/
+    // "vim.vimrc.path": "$HOME/.vimrc",
+    // "vim.vimrc.enable": true,
+    /***********************************************************************/
+    "clangd.inactiveRegions.opacity": 0.5,
+    "clangd.path": "/usr/bin/clangd-22",
+    "clangd.checkUpdates": false,
+    "clangd.arguments": [
+        "--background-index",
+        "--header-insertion=never",
+        "--completion-style=detailed",
+        "--experimental-modules-support",
+        "--compile-commands-dir=${workspaceFolder}",
+        "--clang-tidy",
+        "--enable-config",
+    ],
+    "C_Cpp.intelliSenseEngine": "default",
+    "clangd.enable": false,
+    /***********************************************************************/
+    "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
+    "qwen-code.provider": "api-key",
+    "explorer.confirmDragAndDrop": false,
+    "terminal.external.linuxExec": "kitty",
+    "explorer.confirmPasteNative": false,
+    "chat.titleBar.openInAgentsWindow.enabled": false,
+    "workbench.browser.showInTitleBar": true,
+    "window.customTitleBarVisibility": "never",
+    "highlight.regexes": {
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:[\\t\\f\\v ]*\\([^\\r\\n)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\r\\n@]*?)(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^\\r\\n@]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#ffcc00",
+                    "backgroundColor": "#ffcc00",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#ffcc00",
+                    "color": "#1f1f1f"
+                }
+            ]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:FIXME|FIX|BUG|UGLY|DEBUG|HACK)(?:[\\t\\f\\v ]*\\([^\\r\\n)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\r\\n@]*?)(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^\\r\\n@]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#cc0000",
+                    "backgroundColor": "#cc0000",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#cc0000",
+                    "color": "#1f1f1f"
+                }
+            ]
+        }
+    },
+    "highlight.enabled": true,
+    "c3.lsp.path": "/home/ksarkans/.config/Code/User/globalStorage/c3.vscode-c3/c3lsp_install/lsp",
+    "c3.format.path": "/home/ksarkans/.config/Code/User/globalStorage/c3.vscode-c3/c3fmt_install/c3fmt-linux",
+    "workbench.startupEditor": "none",
+    "terminal.integrated.fontSize": 16,
+    "editor.inertialScroll": true,
+    "xmake.compileCommandsDirectory": "build",
+    "terminal.integrated.smoothScrolling": true,
+    "workbench.reduceMotion": "off",
+    "workbench.colorTheme": "Ayu Dark",
+    /***********************************************************************/
+}

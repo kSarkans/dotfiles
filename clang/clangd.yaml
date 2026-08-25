@@ -1,0 +1,34 @@
+#------------------------------
+# Common settings
+#------------------------------
+Completion:
+  HeaderInsertion: Never
+
+Documentation:
+  CommentFormat: Doxygen
+
+#------------------------------
+# C settings
+#------------------------------
+
+---
+If:
+  PathMatch: [.*\.c, .*\.h]
+CompileFlags:
+  Add: [-std=c23]
+
+---
+If:
+  PathMatch: [.*\.h]
+CompileFlags:
+  Add: [-xc-header]
+
+#------------------------------
+# C++ settings
+#------------------------------
+
+---
+If:
+  PathMatch: [.*\.hpp, .*\.cpp, .*\.hxx, .*\.cxx, .*\.hh, .*\.cc]
+CompileFlags:
+  Add: [-std=c++26]

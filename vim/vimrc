@@ -1,0 +1,122 @@
+"Курсор
+let &t_SI = "\<Esc>[6 q"
+let &t_EI = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
+let &t_Te = "\<Esc>[2 q"
+let mapleader = " "
+
+"Табы и пробелы
+set expandtab
+set smarttab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+"Хуйня
+set clipboard=unnamedplus
+set scrolloff=10
+
+"Нумерация строк и отсутп
+set number
+set foldcolumn=2
+
+"Цветовая схема
+colorscheme catppuccin
+syntax on
+
+"Мышь
+set mouse=a
+
+"Привязки
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+map <C-S-h> <C-w><
+map <C-S-l> <C-w>>
+map <C-S-k> <C-w>+
+map <C-S-j> <C-w>-
+map <C-Left> <C-w><
+map <C-Right> <C-w>>
+map <C-Up> <C-w>+
+map <C-Down> <C-w>-
+
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+
+inoremap <C-v> <ESC>"+pa
+vnoremap <C-c> "+y
+vnoremap <C-d> "+d
+" Форматирование clang-format только для C/C++
+augroup ClangFormatGroup
+    autocmd!
+    autocmd FileType c,cpp nnoremap <buffer> <Leader>f :w<CR>:silent !clang-format -i %<CR>:e!<CR>:redraw!<CR>
+augroup END
+
+"Поиск
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+"Кодировка и типы переноса
+set encoding=utf8
+set ffs=unix,dos,mac
+
+"Плагины
+call plug#begin()
+
+    "Кволити оф лайф
+    Plug 'preservim/nerdtree'
+
+    "LSP
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+call plug#end()
+
+"Маппинги плагинов
+nnoremap <Leader>e :NERDTreeToggle<CR>
+
+" --- НАСТРОЙКИ LSP ---
+" 1. clangd
+"if executable('clangd')
+"    augroup LspClangd
+"        autocmd!
+"        autocmd User lsp_setup call lsp#register_server({
+"            \ 'name': 'clangd',
+"            \ 'cmd': {server_info->['clangd', '--background-index']},
+"            \ 'allowlist': ['c', 'cpp', 'objc', 'objcpp'],
+"            \ 'root_uri': {server_info->lsp#utils#path_to_uri(
+"            \     lsp#utils#find_nearest_parent_file_directory(
+"            \         lsp#utils#get_buffer_path(),
+"            \         ['compile_commands.json', '.git']
+"            \     )
+"            \ )},
+"            \ })
+"    augroup END
+"endif
+
+" 2. Мапы
+"function! s:on_lsp_buffer_enabled() abort
+"    setlocal omnifunc=lsp#complete
+"    " Перейти к объявлению/определению (типа, функции)
+"    nmap <buffer> gd <plug>(lsp-definition)
+"    " Показать документацию/тип под курсором
+"    nmap <buffer> K <plug>(lsp-hover)
+"    " Показать список ошибок в файле
+"    nmap <buffer> <Leader>d <plug>(lsp-document-diagnostics)
+"    " Переименовать переменную/функцию везде в проекте
+"    nmap <buffer> <Leader>rn <plug>(lsp-rename)
+"endfunction
+
+"augroup lsp_install
+"    autocmd!
+"    " Включаем эти биндинги только там, где запустился LSP
+"    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+"augroup END
+
+" 3. Линт
+"let g:lsp_diagnostics_enabled = 1
+"let g:lsp_semantic_text_highlighting = 1 " Включает продвинутую подсветку

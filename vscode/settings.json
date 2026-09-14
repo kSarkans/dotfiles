@@ -10,11 +10,9 @@
         "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc": "default",
         "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.ui": "default"
     },
-    "workbench.activityBar.location": "top",
     "workbench.iconTheme": "ayu",
     "workbench.list.smoothScrolling": true,
     "workbench.reduceTransparency": "auto",
-    "workbench.activityBar.compact": true,
     "workbench.tree.expandMode": "singleClick",
     /***********************************************************************/
     "editor.mouseWheelZoom": true,

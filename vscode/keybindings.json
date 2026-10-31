@@ -230,5 +230,18 @@
     {
         "key": "ctrl+shift+u",
         "command": "outline.focus"
+    },
+    {
+        "key": "ctrl+x ctrl+p",
+        "command": "workbench.action.quickOpen",
+        "when": "!vim.active || vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+'",
+        "command": "workbench.action.terminal.toggleTerminal"
     }
 ]

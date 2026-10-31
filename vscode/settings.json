@@ -10,16 +10,26 @@
         "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc": "default",
         "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.ui": "default"
     },
-    "workbench.iconTheme": "ayu",
+    "workbench.iconTheme": "vscode-icon-theme",
     "workbench.list.smoothScrolling": true,
     "workbench.reduceTransparency": "auto",
     "workbench.tree.expandMode": "singleClick",
+    "workbench.editor.useModal": "off",
+    "workbench.browser.showInTitleBar": true,
+    "workbench.startupEditor": "none",
+    "workbench.reduceMotion": "off",
+    "workbench.sideBar.location": "right",
+    "workbench.productIconTheme": "icons-carbon",
+    "workbench.activityBar.location": "bottom",
+    /***********************************************************************/
+    "vsicons.presets.hideExplorerArrows": true,
     /***********************************************************************/
     "editor.mouseWheelZoom": true,
     "editor.wordWrap": "on",
     // "editor.fontFamily": "'BigBlueTermPlus Nerd Font', 'monospace', monospace",
     // "editor.fontFamily": "'CaskaydiyaMono Nerd Font', 'monospace', monospace",
-    "editor.fontFamily": "'ZedMono Nerd Font', 'monospace', monospace",
+    // "editor.fontFamily": "'ZedMono Nerd Font', 'monospace', monospace",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'monospace', monospace",
     "editor.fontVariations": false,
     "editor.fontLigatures": false,
     "editor.unicodeHighlight.nonBasicASCII": false,
@@ -28,10 +38,19 @@
     "editor.cursorWidth": 2,
     "editor.tabCompletion": "on",
     "editor.smoothScrolling": true,
-    "editor.lineNumbers": "relative",
+    "editor.lineNumbers": "on",
+    "editor.inlayHints.enabled": "off",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.minimap.autohide": "none",
+    "editor.suggest.showStatusBar": true,
+    "editor.wordBasedSuggestions": "matchingDocuments",
+    "editor.inertialScroll": true,
+    "editor.fontSize": 15,
     /***********************************************************************/
     "explorer.compactFolders": false,
     "explorer.autoReveal": "focusNoScroll",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmPasteNative": false,
     /***********************************************************************/
     "catppuccin-icons.hidesExplorerArrows": true,
     "material-icon-theme.hidesExplorerArrows": true,
@@ -153,11 +172,12 @@
         "**/Thumbs.db": true,
         "**/*.uid": false,
         "**/*.import": false,
-        "**/.godot": false,
+        "**/.godot": true,
     },
     /***********************************************************************/
     "window.restoreWindows": "none",
     "window.newWindowProfile": "Default",
+    "window.zoomLevel": 1,
     "C_Cpp.default.compilerPath": "/usr/bin/clang++",
     "C_Cpp.default.compileCommands": [
         "${workspaceFolder}/build/compile_commands.json",
@@ -171,19 +191,19 @@
     /***********************************************************************/
     "cmake.generator": "Ninja Multi-Config",
     "cmake.showConfigureWithDebuggerNotification": false,
-    "cmake.debugConfig": {
-        "type": "lldb",
-        "request": "launch",
-        "externalConsole": false,
-        "cwd": "${command:cmake.launchTargetDirectory}"
-    },
     "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json",
     "cmake.defaultActiveFolder": "${workspaceFolder}",
     "cmake.autoSelectActiveFolder": false,
     "cmake.deleteBuildDirOnCleanConfigure": true,
     "cmake.setBuildTypeOnMultiConfig": true,
     "cmake.options.statusBarVisibility": "compact",
-    "cmake.revealLog": "never",
+    "cmake.revealLog": "always",
+    "cmake.environment": {
+        "PATH": "/home/ksarkans/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64:/home/ksarkans/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.2.1-linux-x64/resources/binaries/linux/x86_64:${env.PATH}"
+    },
+    "[cmake]": {
+        "editor.tabSize": 2
+    },
     /***********************************************************************/
     "makefile.configureOnOpen": true,
     /***********************************************************************/
@@ -215,8 +235,8 @@
     "dotnet.codeLens.enableReferencesCodeLens": false,
     "dotnet.completion.triggerCompletionInArgumentLists": false,
     "dotnet.inlayHints.enableInlayHintsForParameters": true,
-    "csharp.debug.console": "integratedTerminal",
-    "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "none",
+    "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "openFiles",
+    "csharp.debug.console": "externalTerminal",
     /***********************************************************************/
     "godot.csharp.executablePath": "/home/ksarkans/.local/bin/godot-mono",
     "godotTools.editorPath.godot4": "/home/ksarkans/.local/bin/godot-mono",
@@ -232,31 +252,19 @@
     ],
     "sourcecraft-code-assist.deniedCommands": [],
     /***********************************************************************/
-    "vim.highlightedyank.enable": true,
-    "vim.useSystemClipboard": true,
-    "vim.disableExtension": false,
     "doxdocgen.generic.authorEmail": "slowianstwo.1@gmail.com",
-    "doxdocgen.generic.authorName": "Sergei \"Sarkans\" Vishnevecki",
+    "doxdocgen.generic.authorName": "Sergey \"Sarkans\" Vishnevecki",
     "doxdocgen.generic.authorTag": "@author {author}",
-    "editor.inlayHints.enabled": "off",
     "stm32cube-ide-core.enableOfflineMode": true,
-    "cmake.environment": {
-        "PATH": "/home/ksarkans/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.44.0-linux-x64/resources/cube-cmake/linux/x86_64:/home/ksarkans/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.2.1-linux-x64/resources/binaries/linux/x86_64:${env.PATH}"
-    },
     "stm32cube-ide-build-cmake.ignoreCubeProjectDiscovery": true,
     "material-icon-theme.folders.theme": "specific",
     "liveshare.languages.allowGuestCommandControl": true,
-    "[cmake]": {},
     "cmake.modifyLists.addNewSourceFiles": "no",
     "security.workspace.trust.untrustedFiles": "open",
-    "editor.acceptSuggestionOnCommitCharacter": false,
     "files.autoGuessEncoding": true,
     "window.controlsStyle": "custom",
     "window.dialogStyle": "custom",
     "window.menuBarVisibility": "visible",
-    "editor.minimap.autohide": "none",
-    "editor.suggest.showStatusBar": true,
-    "editor.wordBasedSuggestions": "matchingDocuments",
     "C_Cpp.autocompleteAddParentheses": true,
     "C_Cpp.default.cppStandard": "c++23",
     "C_Cpp.default.cStandard": "c17",
@@ -269,10 +277,57 @@
     "oneDarkPro.bold": true,
     /***********************************************************************/
     // "vim.vimrc.path": "$HOME/.vimrc",
-    // "vim.vimrc.enable": true,
+    "vim.vimrc.enable": true,
+    "vim.highlightedyank.enable": true,
+    "vim.useSystemClipboard": true,
+    "vim.disableExtension": false,
+    "vim.leader": " ",
+    "vim.neovimUseConfigFile": true,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "leader",
+                "w"
+            ],
+            "commands": [
+                ":w",
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "q"
+            ],
+            "commands": [
+                ":q",
+            ]
+        },
+    ],
+    // "vim.normalModeKeyBindingsNonRecursive": [
+    //     {
+    //         "before": [
+    //             "[",
+    //             "<leader>"
+    //         ],
+    //         "commands": [
+    //             "editor.action.insertLineBefore",
+    //             "editor.action.moveCarretDownAction",
+    //         ]
+    //     },
+    //     {
+    //         "before": [
+    //             "]",
+    //             "<leader>"
+    //         ],
+    //         "commands": [
+    //             "editor.action.insertLineAfter",
+    //             "editor.action.moveCarretUpAction",
+    //         ]
+    //     }
+    // ],
     /***********************************************************************/
     "clangd.inactiveRegions.opacity": 0.5,
-    "clangd.path": "/usr/bin/clangd-22",
+    "clangd.path": "/usr/bin/clangd",
     "clangd.checkUpdates": false,
     "clangd.arguments": [
         "--background-index",
@@ -283,17 +338,13 @@
         "--clang-tidy",
         "--enable-config",
     ],
-    "C_Cpp.intelliSenseEngine": "default",
-    "clangd.enable": false,
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "clangd.enable": true,
     /***********************************************************************/
     "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
     "qwen-code.provider": "api-key",
-    "explorer.confirmDragAndDrop": false,
-    "terminal.external.linuxExec": "kitty",
-    "explorer.confirmPasteNative": false,
+    // "terminal.external.linuxExec": "kitty",
     "chat.titleBar.openInAgentsWindow.enabled": false,
-    "workbench.browser.showInTitleBar": true,
-    "window.customTitleBarVisibility": "never",
     "highlight.regexes": {
         "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:[\\t\\f\\v ]*\\([^\\r\\n)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\r\\n@]*?)(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^\\r\\n@]+)?))": {
             "filterFileRegex": ".*(?<!CHANGELOG.md)$",
@@ -327,14 +378,41 @@
         }
     },
     "highlight.enabled": true,
-    "c3.lsp.path": "/home/ksarkans/.config/Code/User/globalStorage/c3.vscode-c3/c3lsp_install/lsp",
-    "c3.format.path": "/home/ksarkans/.config/Code/User/globalStorage/c3.vscode-c3/c3fmt_install/c3fmt-linux",
-    "workbench.startupEditor": "none",
-    "terminal.integrated.fontSize": 16,
-    "editor.inertialScroll": true,
-    "xmake.compileCommandsDirectory": "build",
+    "terminal.integrated.fontSize": 15,
+    "xmake.compileCommandsDirectory": "${workspaceRoot}",
     "terminal.integrated.smoothScrolling": true,
-    "workbench.reduceMotion": "off",
-    "workbench.colorTheme": "Ayu Dark",
     /***********************************************************************/
+    "[gdscript]": {
+        "editor.insertSpaces": false,
+        "editor.detectIndentation": false,
+    },
+    "[odin]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 3
+    },
+    "redhat.telemetry.enabled": false,
+    "ols.server.path": "/home/ksarkans/Applications/ols-x86_64-unknown-linux-gnu/ols-x86_64-unknown-linux-gnu",
+    "ols.trace.server": "messages",
+    /***********************************************************************/
+    "Lua.workspace.library": [
+        "/usr/share/xmake/includes"
+    ],
+    "xmake.installDirectory": "${workspaceRoot}/install",
+    "workbench.colorTheme": "Dark Modern",
+    "json.schemaDownload.trustedDomains": {
+        "https://developer.microsoft.com/json-schemas/": true,
+        "https://json-schema.org/": true,
+        "https://json.schemastore.org/": true,
+        "https://raw.githubusercontent.com": true,
+        "https://raw.githubusercontent.com/devcontainers/spec/": true,
+        "https://raw.githubusercontent.com/microsoft/vscode/": true,
+        "https://schemastore.azurewebsites.net/": true,
+        "https://spec.openapis.org/": true,
+        "https://www.schemastore.org/": true
+    },
+    "explorer.fileNesting.enabled": true,
+    "explorer.incrementalNaming": "smart",
+    "[just]": {
+        "editor.defaultFormatter": "nefrob.vscode-just-syntax"
+    }
 }

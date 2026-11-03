@@ -264,7 +264,7 @@
     "files.autoGuessEncoding": true,
     "window.controlsStyle": "custom",
     "window.dialogStyle": "custom",
-    "window.menuBarVisibility": "visible",
+    "window.menuBarVisibility": "compact",
     "C_Cpp.autocompleteAddParentheses": true,
     "C_Cpp.default.cppStandard": "c++23",
     "C_Cpp.default.cStandard": "c17",
@@ -398,7 +398,7 @@
         "/usr/share/xmake/includes"
     ],
     "xmake.installDirectory": "${workspaceRoot}/install",
-    "workbench.colorTheme": "Dark Modern",
+    "workbench.colorTheme": "Monokai Pro (Filter Machine)",
     "json.schemaDownload.trustedDomains": {
         "https://developer.microsoft.com/json-schemas/": true,
         "https://json-schema.org/": true,
@@ -414,5 +414,6 @@
     "explorer.incrementalNaming": "smart",
     "[just]": {
         "editor.defaultFormatter": "nefrob.vscode-just-syntax"
-    }
+    },
+    "workbench.layoutControl.enabled": false
 }

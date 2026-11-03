@@ -49,6 +49,14 @@ return {
         softtabstop = 4,
         shiftwidth = 4,
         scrolloff = 8,
+        list = true,
+        listchars = {
+          tab = "» ",
+          trail = "·",
+          nbsp = "␣",
+          lead = "·",
+          leadmultispace = "·",
+        },
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

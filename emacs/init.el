@@ -1,42 +1,38 @@
 ;;; -*- lexical-binding: t -*-
 
-;; Инициализация пакетного менеджера (чтобы use-package работал железно)
+;; Пакетный менеджер
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/")
                          ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
-;; Если use-package еще не установлен, Emacs сам его скачает
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 (eval-when-compile (require 'use-package))
 
 ;; Интерфейс и звук
-(setq ring-bell-function 'ignore) ;; Полностью глушим звук (visible-bell ниже можно убрать, если бесит мигание)
+(setq ring-bell-function 'ignore)
 (setq visible-bell t)
 (setq scroll-margin 7)
 (setq scroll-conservatively 101)
 (setq scroll-step 1)
+(setq global-auto-revert-non-file-buffers t)
+(global-auto-revert-mode 1)
 
-;; Импорт PATH из Zsh (теперь отработает как надо)
+;; Импорт PATH из Zsh
 (use-package exec-path-from-shell
   :ensure t
   :if (memq window-system '(mac ns x pgtk))
   :config
   (exec-path-from-shell-initialize))
-(use-package gruvbox-theme
-  :ensure t
-  :config
-  (load-theme 'gruvbox-dark-hard t))
+
 (use-package clipetty
   :ensure t
   :hook (after-init . global-clipetty-mode))
+
 (use-package clang-format
   :ensure t
-  ;; :bind (:map c-mode-map       ("C-c C-f" . clang-format-buffer)
-  ;;        :map c++-mode-map     ("C-c C-f" . clang-format-buffer)
-  ;;        :map c++-ts-mode-map  ("C-c C-f" . clang-format-buffer))
   :hook (c-mode-common . (lambda () (local-set-key (kbd "C-c C-f") #'clang-format-buffer)))
         (c++-ts-mode    . (lambda () (local-set-key (kbd "C-c C-f") #'clang-format-buffer)))
   :config
@@ -45,7 +41,7 @@
 (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-ts-mode))
 
-;; Настройка компиляции
+;; Компиляция
 (setq compile-command "")
 (global-set-key (kbd "C-x m") 'compile)
 
@@ -67,11 +63,11 @@
 (global-whitespace-mode t)
 (setq dired-listing-switches "-lah --group-directories-first")
 
-;; Шрифт и бэкапы
-(set-face-attribute 'default nil :height 130)
+;; Бэкапы
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
+;; Цветной вывод компиляции
 (require 'ansi-color)
 (defun endless/colorize-compilation ()
   "Colorize from `compilation-filter-start' to `point'."
@@ -86,6 +82,16 @@
 (add-to-list 'load-path (expand-file-name "external" user-emacs-directory))
 (require 'odin-mode)
 
+;; Кастом (в самом конце!)
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
+
+;; Более мягкие цвета whitespace
+(with-eval-after-load 'whitespace
+  (custom-set-faces
+   '(trailing-whitespace ((t (:background "grey20" :foreground "gray30"))))
+   '(whitespace-space ((t (:background nil :foreground "gray30"))))
+   '(whitespace-tab ((t (:background nil :foreground "gray30"))))
+   '(whitespace-indentation ((t (:background nil :foreground "gray30"))))
+   '(whitespace-empty ((t (:background nil :foreground "gray30"))))))

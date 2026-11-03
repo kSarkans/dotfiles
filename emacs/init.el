@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-;; Пакетный менеджер
+;; Package manager
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/")
@@ -11,7 +11,7 @@
   (package-install 'use-package))
 (eval-when-compile (require 'use-package))
 
-;; Интерфейс и звук
+;; Interface and sound
 (setq ring-bell-function 'ignore)
 (setq visible-bell t)
 (setq scroll-margin 7)
@@ -20,17 +20,19 @@
 (setq global-auto-revert-non-file-buffers t)
 (global-auto-revert-mode 1)
 
-;; Импорт PATH из Zsh
+;; Import PATH from shell
 (use-package exec-path-from-shell
   :ensure t
   :if (memq window-system '(mac ns x pgtk))
   :config
   (exec-path-from-shell-initialize))
 
+;; Le shit for normal copy-pasting
 (use-package clipetty
   :ensure t
   :hook (after-init . global-clipetty-mode))
 
+;; clang-format
 (use-package clang-format
   :ensure t
   :hook (c-mode-common . (lambda () (local-set-key (kbd "C-c C-f") #'clang-format-buffer)))
@@ -41,21 +43,23 @@
 (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-ts-mode))
 
-;; Компиляция
+;; Compilation
 (setq compile-command "")
 (global-set-key (kbd "C-x m") 'compile)
 
-;; Буфер обмена и табы
+;; Clipboard
 (setq select-enable-clipboard t)
+
+;; Tabs
 (setq-default c-basic-offset 4)
-(setq-default indent-tabs-mode t)
+(setq-default indent-tabs-mode t) ;; i don't remember is it spaces or tabs mode, nevermind
 (setq-default tab-width 4)
 (setq backward-delete-char-untabify-method nil)
 (add-hook 'c++-mode-hook
           (lambda ()
             (c-set-offset 'innamespace 0)))
 
-;; Визуал
+;; Visuals
 (global-display-line-numbers-mode t)
 (global-hl-line-mode t)
 (electric-pair-mode t)
@@ -63,11 +67,11 @@
 (global-whitespace-mode t)
 (setq dired-listing-switches "-lah --group-directories-first")
 
-;; Бэкапы
+;; Disable garbage files
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;; Цветной вывод компиляции
+;; Colorized compilation buffer
 (require 'ansi-color)
 (defun endless/colorize-compilation ()
   "Colorize from `compilation-filter-start' to `point'."
@@ -78,16 +82,16 @@
 (add-hook 'compilation-filter-hook
           #'endless/colorize-compilation)
 
-;; Сторонние моды
+;; External stuff
 (add-to-list 'load-path (expand-file-name "external" user-emacs-directory))
 (require 'odin-mode)
 
-;; Кастом (в самом конце!)
+;; custom.el
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;; Более мягкие цвета whitespace
+;; Not working fix for whitespace colors (check 'base16' theme)
 (with-eval-after-load 'whitespace
   (custom-set-faces
    '(trailing-whitespace ((t (:background "grey20" :foreground "gray30"))))

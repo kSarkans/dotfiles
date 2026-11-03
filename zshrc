@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="darkblood"
+ZSH_THEME="bira"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -28,8 +28,11 @@ ZSH_THEME="darkblood"
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# Uncomment the following line to change how often to auto-update (in days).
+# Uncomment the following line to change the frequency the auto-updater is run (in days).
 # zstyle ':omz:update' frequency 13
+
+# Uncomment the following line to set how old an update must be before it's applied, manually or via the auto-updater (in days).
+# zstyle ':omz:update' cooldown 10
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -82,11 +85,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -103,46 +106,26 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export VCPKG_ROOT=$HOME/Applications/vcpkg
-export PATH=$VCPKG_ROOT:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/Applications/gigaide-CE-251.26927.53/bin:$PATH
-
-# Kvantum
-export QT_STYLE_OVERRIDE=kvantum
-
-# vcpkg
-export VCPKG_ROOT="$HOME/.local/vcpkg"
-export PATH="$VCPKG_ROOT:$PATH"
-export VCPKG_BINARY_SOURCES="clear;x-gha,readwrite;files,$HOME/.cache/vcpkg/archives,readwrite"
-
-# Vulkan SDK
-source /home/ksarkans/Repos/External/VulkanSDK/default/setup-env.sh
-
 # KDE Plasma fix
 for _key in translucencyEnabled wobblywindowsEnabled; do
     kwriteconfig6 --group 'Plugins' --file kwinrc \
         --key="${_key}" 'false';
 done
 
-# XDG Desktop Portal
-export XDG_CURRENT_DESKTOP=KDE
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/app/v:$PATH
+export PATH=$HOME/lib/dev/odin/default/:$PATH
+source $HOME/lib/dev/vulkan-sdk/default/setup-env.sh
 
-# Aliases
-alias v="vim"
-alias nv="nvim"
-alias m="micro"
-alias cls="clear"
-alias quit="exit"
-alias q="exit"
+export C_INCLUDE_PATH=$HOME/lib/dev/raylib/default/include:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$HOME/lib/dev/raylib/default/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=$HOME/lib/dev/raylib/default/lib:$LD_LIBRARY_PATH
 
-# CMake modules global
-# export CMAKE_PREFIX_PATH="$HOME/Repos/External/CMakeModules:$CMAKE_PREFIX_PATH"
 
-export PATH=$HOME/.local/opt/odin-linux-amd64-nightly+2026-06-08/:$PATH
+alias ll="ls -lh --group-directories-first"
+alias la="ls -lah --group-directories-first"
+alias cls="clear && fastfetch"
+alias emacst="emacs -nw"
 
-# Custom C++ include paths
-export CPLUS_INCLUDE_PATH="$HOME/.local/include/cpp:$CPLUS_INCLUDE_PATH"
-
-# NPM global bin (added by Qwen Code installer)
-export PATH="$HOME/.npm-global/bin:$PATH"
+# opencode
+export PATH=/home/ksarkans/.opencode/bin:$PATH

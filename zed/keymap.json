@@ -21,42 +21,130 @@
   {
     "context": "Workspace",
     "bindings": {
-      "alt-b": "workspace::ToggleLeftDock"
+      "ctrl-'": "terminal_panel::Toggle"
     }
   },
   {
-    "bindings": {
-      "alt-q": "editor::ToggleAutoSignatureHelp"
-    }
-  },
-  {
-    "context": "vim_mode == insert",
-    "bindings": {
-      "alt-q": "editor::ShowSignatureHelp"
-    }
-  },
-  {
-    "context": "vim_mode == insert",
+    "context": "Editor",
     "unbind": {
-      "ctrl-s": "editor::ShowSignatureHelp"
+      "ctrl-'": "editor::ToggleSelectedDiffHunks"
+    }
+  },
+  {
+    "context": "(VimControl && vim_mode == normal)",
+    "bindings": {
+      "space w": "workspace::Save"
+    }
+  },
+  {
+    "context": "(VimControl && vim_mode == normal)",
+    "bindings": {
+      "space c": "pane::CloseActiveItem"
     }
   },
   {
     "bindings": {
+      "ctrl-shift-k f": "workspace::CloseProject"
+    }
+  },
+  {
+    "bindings": {
+      "alt--": "zed::DecreaseUiFontSize"
+    }
+  },
+  {
+    "bindings": {
+      "alt-=": "zed::IncreaseUiFontSize"
+    }
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "unbind": {
+      "space c": [
+        "editor::ToggleComments",
+        {
+          "advance_downwards": false,
+          "comment_empty_lines": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "unbind": {
+      "ctrl-n": "project_panel::NewFile"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-shift-n": "workspace::NewWindow"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-shift-n": "project_panel::NewFile"
+    }
+  },
+  {
+    "context": "Editor",
+      "bindings": {
       "alt-v": "workspace::ToggleVimMode"
     }
   },
   {
-    "context": "!VimControl && vim_mode == normal",
-    "bindings": {
-      ":": "command_palette::Toggle"
+    "context": "Editor",
+    "unbind": {
+      "ctrl-z": "editor::Undo"
     }
   },
   {
-    "context": "VimControl && Editor && vim_mode == normal && !menu",
+    "context": "Editor",
     "bindings": {
-      ")": "pane::ActivateNextItem",
-      "(": "pane::ActivatePreviousItem"
+      "ctrl-shift-k ctrl-i": "editor::Hover"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-k ctrl-i": "editor::Hover"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-k ctrl-b": "editor::BlameHover"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-k ctrl-b": "editor::BlameHover"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-k ctrl-t": "theme_selector::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-k ctrl-t": "theme_selector::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-k ctrl-shift-t": "theme::ToggleMode"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-k ctrl-shift-t": "theme::ToggleMode"
     }
   }
 ]

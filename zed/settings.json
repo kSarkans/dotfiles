@@ -169,7 +169,7 @@
   "buffer_line_height": "comfortable",
   "terminal": {
     "dock": "bottom",
-    "font_size": 18.0,
+    "font_size": 20.0,
     "show_count_badge": false,
     "font_family": "ZedMono Nerd Font Propo",
   },
@@ -178,23 +178,22 @@
     "highlight_on_yank_duration": 250,
     "cursor_shape": {
       "replace": "hollow",
-      "insert": "bar",
       "visual": "underline",
     },
     "use_system_clipboard": "on_yank",
     "use_smartcase_find": true,
-    "toggle_relative_line_numbers": true,
+    "toggle_relative_line_numbers": false,
   },
   "base_keymap": "Zed",
   "session": {
     "trust_all_worktrees": true,
   },
-  "ui_font_size": 18.0,
-  "buffer_font_size": 22.0,
+  "ui_font_size": 16.0,
+  "buffer_font_size": 20.0,
   "theme": {
     "mode": "dark",
     "light": "GitHub Light",
-    "dark": "Gruber Darker",
+    "dark": "Oolong",
   },
   "completions": {
     "lsp_insert_mode": "insert",

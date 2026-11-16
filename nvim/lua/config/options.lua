@@ -47,3 +47,33 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
     desc = "Highlight yanked text",
 })
+
+------------------------------------------------------
+-- C/C++
+------------------------------------------------------
+
+local group = vim.api.nvim_create_augroup("ClangFormatGroup", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = group,
+    pattern = { "c", "cpp" },
+    callback = function(args)
+        vim.keymap.set("n", "<Leader>f", function()
+            if vim.bo[args.buf].modified then
+                vim.cmd("write")
+            end
+            local filepath = vim.api.nvim_buf_get_name(args.buf)
+            if filepath == "" then return end
+            vim.system({ "clang-format", "-i", filepath }, {}, function(obj)
+                vim.schedule(function()
+                    if obj.code == 0 then
+                        vim.cmd("checktime " .. args.buf)
+                    else
+                        local err = obj.stderr ~= "" and obj.stderr or "Unknown error"
+                        vim.notify("Clang-format failed: " .. err, vim.log.levels.ERROR)
+                    end
+                end)
+            end)
+        end, { buffer = args.buf, desc = "Async clang-format" })
+    end,
+})

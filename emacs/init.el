@@ -51,20 +51,20 @@
 (setq select-enable-clipboard t)
 
 ;; Tabs
-(setq-default c-basic-offset 4)
-(setq-default indent-tabs-mode t) ;; i don't remember is it spaces or tabs mode, nevermind
+(setq-default c-basic-offset 2)
+(setq-default indent-tabs-mode nil) ;; i don't remember is it spaces or tabs mode, nevermind
 (setq-default tab-width 4)
 (setq backward-delete-char-untabify-method nil)
-(add-hook 'c++-mode-hook
-          (lambda ()
-            (c-set-offset 'innamespace 0)))
+; (add-hook 'c++-mode-hook
+;           (lambda ()
+;             (c-set-offset 'innamespace 0)))
 
 ;; Visuals
 (global-display-line-numbers-mode t)
 (global-hl-line-mode t)
 (electric-pair-mode t)
-(setq whitespace-style '(face tabs spaces trailing space-mark tab-mark))
-(global-whitespace-mode t)
+;; (setq whitespace-style '(face tabs spaces trailing space-mark tab-mark))
+;; (global-whitespace-mode t)
 (setq dired-listing-switches "-lah --group-directories-first")
 
 ;; Disable garbage files
@@ -92,10 +92,10 @@
   (load custom-file))
 
 ;; Not working fix for whitespace colors (check 'base16' theme)
-(with-eval-after-load 'whitespace
-  (custom-set-faces
-   '(trailing-whitespace ((t (:background "grey20" :foreground "gray30"))))
-   '(whitespace-space ((t (:background nil :foreground "gray30"))))
-   '(whitespace-tab ((t (:background nil :foreground "gray30"))))
-   '(whitespace-indentation ((t (:background nil :foreground "gray30"))))
-   '(whitespace-empty ((t (:background nil :foreground "gray30"))))))
+;; (with-eval-after-load 'whitespace
+;;   (custom-set-faces
+;;    '(trailing-whitespace ((t (:background "grey20" :foreground "gray30"))))
+;;    '(whitespace-space ((t (:background nil :foreground "gray30"))))
+;;    '(whitespace-tab ((t (:background nil :foreground "gray30"))))
+;;    '(whitespace-indentation ((t (:background nil :foreground "gray30"))))
+;;    '(whitespace-empty ((t (:background nil :foreground "gray30"))))))

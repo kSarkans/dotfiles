@@ -39,12 +39,7 @@
   {
     "context": "(VimControl && vim_mode == normal)",
     "bindings": {
-      "space c": "pane::CloseActiveItem"
-    }
-  },
-  {
-    "bindings": {
-      "ctrl-shift-k f": "workspace::CloseProject"
+      "space b c": "pane::CloseActiveItem"
     }
   },
   {
@@ -101,20 +96,8 @@
   },
   {
     "context": "Editor",
-    "bindings": {
-      "ctrl-shift-k ctrl-i": "editor::Hover"
-    }
-  },
-  {
-    "context": "Editor",
     "unbind": {
       "ctrl-k ctrl-i": "editor::Hover"
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {
-      "ctrl-shift-k ctrl-b": "editor::BlameHover"
     }
   },
   {
@@ -124,27 +107,55 @@
     }
   },
   {
-    "context": "Workspace",
     "bindings": {
-      "ctrl-shift-k ctrl-t": "theme_selector::Toggle"
+      "ctrl-k f": "workspace::CloseProject"
     }
   },
   {
-    "context": "Workspace",
-    "unbind": {
-      "ctrl-k ctrl-t": "theme_selector::Toggle"
-    }
-  },
-  {
-    "context": "Workspace",
+    "context": "vim_mode == helix_normal",
     "bindings": {
-      "ctrl-shift-k ctrl-shift-t": "theme::ToggleMode"
+      "ctrl-s": "workspace::Save"
     }
   },
   {
-    "context": "Workspace",
-    "unbind": {
-      "ctrl-k ctrl-shift-t": "theme::ToggleMode"
+    "context": "!menu && VimControl",
+    "bindings": {
+      "alt-x": "editor::Cancel"
+    }
+  },
+  {
+    "context": "menu && VimControl",
+    "bindings": {
+      "alt-x": "menu::Cancel"
+    }
+  },
+  {
+    "context": "vim_mode == waiting || vim_mode == operator",
+    "bindings": {
+      "alt-x": "vim::ClearOperators"
+    }
+  },
+  {
+    "context": "vim_mode == insert || vim_mode == replace",
+    "bindings": {
+      "alt-x": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "!menu && (vim_mode == helix_select || vim_mode == insert)",
+    "bindings": {
+      "alt-x": "vim::SwitchToHelixNormalMode"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-=": [
+        "zed::IncreaseBufferFontSize",
+        {
+          "persist": false
+        }
+      ]
     }
   }
 ]

@@ -120,8 +120,8 @@
   {
     // "context": "",
     "bindings": {
-      "alt-x": ["workspace::SendKeystrokes", "escape"]
-    }
+      "alt-x": ["workspace::SendKeystrokes", "escape"],
+    },
   },
   {
     "context": "Editor",
@@ -132,6 +132,24 @@
           "persist": false,
         },
       ],
+    },
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      ">": "editor::Indent",
+    },
+    "unbind": {
+      ">": "vim::Indent",
+    },
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "<": "editor::Outdent",
+    },
+    "unbind": {
+      "<": "vim::Outdent",
     },
   },
 ]

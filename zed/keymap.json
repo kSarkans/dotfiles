@@ -6,10 +6,16 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
+  // {
+  //   "context": "VimControl && !menu",
+  //   "bindings": {
+  //     "space f": "file_finder::Toggle",
+  //   },
+  // },
   {
-    "context": "Workspace",
+    "context": "VimControl && !menu",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
+      "space b b": "tab_switcher::OpenInActivePane",
     },
   },
   {
@@ -21,36 +27,36 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-'": "terminal_panel::Toggle"
-    }
+      "ctrl-'": "terminal_panel::Toggle",
+    },
   },
   {
     "context": "Editor",
     "unbind": {
-      "ctrl-'": "editor::ToggleSelectedDiffHunks"
-    }
+      "ctrl-'": "editor::ToggleSelectedDiffHunks",
+    },
   },
   {
     "context": "(VimControl && vim_mode == normal)",
     "bindings": {
-      "space w": "workspace::Save"
-    }
+      "space w": "workspace::Save",
+    },
   },
   {
     "context": "(VimControl && vim_mode == normal)",
     "bindings": {
-      "space b c": "pane::CloseActiveItem"
-    }
+      "space b c": "pane::CloseActiveItem",
+    },
   },
   {
     "bindings": {
-      "alt--": "zed::DecreaseUiFontSize"
-    }
+      "alt--": "zed::DecreaseUiFontSize",
+    },
   },
   {
     "bindings": {
-      "alt-=": "zed::IncreaseUiFontSize"
-    }
+      "alt-=": "zed::IncreaseUiFontSize",
+    },
   },
   {
     "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
@@ -59,92 +65,62 @@
         "editor::ToggleComments",
         {
           "advance_downwards": false,
-          "comment_empty_lines": false
-        }
-      ]
-    }
+          "comment_empty_lines": false,
+        },
+      ],
+    },
   },
   {
     "context": "ProjectPanel",
     "unbind": {
-      "ctrl-n": "project_panel::NewFile"
-    }
-  },
-  {
-    "context": "Workspace",
-    "unbind": {
-      "ctrl-shift-n": "workspace::NewWindow"
-    }
+      "ctrl-n": "project_panel::NewFile",
+    },
   },
   {
     "context": "ProjectPanel",
     "bindings": {
-      "ctrl-shift-n": "project_panel::NewFile"
-    }
+      "ctrl-shift-n": "project_panel::NewFile",
+    },
   },
   {
     "context": "Editor",
-      "bindings": {
-      "alt-v": "workspace::ToggleVimMode"
-    }
-  },
-  {
-    "context": "Editor",
-    "unbind": {
-      "ctrl-z": "editor::Undo"
-    }
+    "bindings": {
+      "alt-v": "workspace::ToggleVimMode",
+    },
   },
   {
     "context": "Editor",
     "unbind": {
-      "ctrl-k ctrl-i": "editor::Hover"
-    }
+      "ctrl-z": "editor::Undo",
+    },
   },
   {
     "context": "Editor",
     "unbind": {
-      "ctrl-k ctrl-b": "editor::BlameHover"
-    }
+      "ctrl-k ctrl-i": "editor::Hover",
+    },
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-k ctrl-b": "editor::BlameHover",
+    },
   },
   {
     "bindings": {
-      "ctrl-k f": "workspace::CloseProject"
-    }
+      "ctrl-k f": "workspace::CloseProject",
+    },
   },
   {
     "context": "vim_mode == helix_normal",
     "bindings": {
-      "ctrl-s": "workspace::Save"
-    }
+      "ctrl-s": "workspace::Save",
+    },
   },
   {
-    "context": "!menu && VimControl",
+    // "context": "",
     "bindings": {
-      "alt-x": "editor::Cancel"
-    }
-  },
-  {
-    "context": "menu && VimControl",
-    "bindings": {
-      "alt-x": "menu::Cancel"
-    }
-  },
-  {
-    "context": "vim_mode == waiting || vim_mode == operator",
-    "bindings": {
-      "alt-x": "vim::ClearOperators"
-    }
-  },
-  {
-    "context": "vim_mode == insert || vim_mode == replace",
-    "bindings": {
-      "alt-x": "vim::NormalBefore"
-    }
-  },
-  {
-    "context": "!menu && (vim_mode == helix_select || vim_mode == insert)",
-    "bindings": {
-      "alt-x": "vim::SwitchToHelixNormalMode"
+      "alt-x": ["workspace::SendKeystrokes", "escape"]
     }
   },
   {
@@ -153,9 +129,9 @@
       "ctrl-=": [
         "zed::IncreaseBufferFontSize",
         {
-          "persist": false
-        }
-      ]
-    }
-  }
+          "persist": false,
+        },
+      ],
+    },
+  },
 ]

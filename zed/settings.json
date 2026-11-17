@@ -9,7 +9,7 @@
 {
   "window_title_format": "${projectName}${separator}${fileName}",
   "prettier": {
-    "parser": ""
+    "parser": "",
   },
   "line_ending": "prefer_lf",
   "current_line_highlight": "none",
@@ -177,8 +177,10 @@
   "vim": {
     "highlight_on_yank_duration": 250,
     "cursor_shape": {
-      "replace": "hollow",
-      "visual": "underline",
+      "normal": "block",
+      "insert": "bar",
+      "visual": "hollow",
+      "replace": "underline",
     },
     "use_system_clipboard": "on_yank",
     "use_smartcase_find": true,
@@ -193,7 +195,7 @@
   "theme": {
     "mode": "dark",
     "light": "GitHub Light",
-    "dark": "Oolong",
+    "dark": "Netherlight",
   },
   "completions": {
     "lsp_insert_mode": "insert",

@@ -1,0 +1,7 @@
+id = "netherlight-theme"
+name = "Netherlight"
+version = "0.1.0"
+schema_version = 1
+authors = ["Sergěj Višnjevecki"]
+description = "Naysayer family flavored theme."
+repository = "https://github.com/kSarkans/dotfiles/tree/master/zed/extensions/netherlight-theme"

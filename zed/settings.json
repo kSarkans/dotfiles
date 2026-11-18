@@ -195,7 +195,7 @@
   "theme": {
     "mode": "dark",
     "light": "GitHub Light",
-    "dark": "Netherlight",
+    "dark": "Netherlight 2",
   },
   "completions": {
     "lsp_insert_mode": "insert",

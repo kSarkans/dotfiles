@@ -20,14 +20,14 @@
 
 ;; Basic settings
 
-(setq desktop-save t)
-(setq desktop-restore-frames t)
+; (setq desktop-save t)
+; (setq desktop-restore-frames t)
 (setq inhibit-startup-screen t)
 (setq select-enable-clipboard t)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(desktop-save-mode 1)
+; (desktop-save-mode 1)
 
 ;; Interface
 (setq ring-bell-function 'ignore)
@@ -36,12 +36,13 @@
 (setq scroll-margin 6)
 (setq global-auto-revert-non-file-buffers t)
 (setq dired-listing-switches "-lah --group-directories-first")
-(pixel-scroll-precision-mode 1)
+; (pixel-scroll-precision-mode 1)
 (global-auto-revert-mode 1)
 
 (global-display-line-numbers-mode 1)
 (column-number-mode 1)
 (delete-selection-mode 1)
+(global-superword-mode t)
 (electric-pair-mode 1)
 (global-auto-revert-mode 1)
 (savehist-mode 1)
@@ -65,7 +66,7 @@
   :hook (c-mode-common . (lambda () (local-set-key (kbd "C-c C-f") #'clang-format-buffer)))
         (c++-ts-mode    . (lambda () (local-set-key (kbd "C-c C-f") #'clang-format-buffer)))
   :config
-  (setq clang-format-fallback-style "none"))
+  (setq clang-format-fallback-style "Microsoft"))
 
 (require 'ansi-color)
 (defun endless/colorize-compilation ()
@@ -79,3 +80,6 @@
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'noerror)
+
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)

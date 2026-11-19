@@ -11,15 +11,6 @@
   (package-install 'use-package))
 (eval-when-compile (require 'use-package))
 
-;; Interface and sound
-(setq ring-bell-function 'ignore)
-(setq visible-bell t)
-(setq scroll-margin 7)
-(setq scroll-conservatively 101)
-(setq scroll-step 1)
-(setq global-auto-revert-non-file-buffers t)
-(global-auto-revert-mode 1)
-
 ;; Import PATH from shell
 (use-package exec-path-from-shell
   :ensure t
@@ -27,12 +18,48 @@
   :config
   (exec-path-from-shell-initialize))
 
-;; Le shit for normal copy-pasting
-(use-package clipetty
-  :ensure t
-  :hook (after-init . global-clipetty-mode))
+;; Basic settings
 
-;; clang-format
+(setq desktop-save t)
+(setq desktop-restore-frames t)
+(setq inhibit-startup-screen t)
+(setq select-enable-clipboard t)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(desktop-save-mode 1)
+
+;; Interface
+(setq ring-bell-function 'ignore)
+(setq visible-bell t)
+(setq scroll-conservatively 101)
+(setq scroll-margin 6)
+(setq global-auto-revert-non-file-buffers t)
+(setq dired-listing-switches "-lah --group-directories-first")
+(pixel-scroll-precision-mode 1)
+(global-auto-revert-mode 1)
+
+(global-display-line-numbers-mode 1)
+(column-number-mode 1)
+(delete-selection-mode 1)
+(electric-pair-mode 1)
+(global-auto-revert-mode 1)
+(savehist-mode 1)
+(recentf-mode 1)
+
+(setq compile-command "")
+(global-set-key (kbd "C-x m") 'compile)
+
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
+;; Vendored
+(add-to-list 'custom-theme-load-path (expand-file-name "vendor/themes" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "vendor/modes" user-emacs-directory))
+
+(require 'odin-mode)
+
+;; Packages
 (use-package clang-format
   :ensure t
   :hook (c-mode-common . (lambda () (local-set-key (kbd "C-c C-f") #'clang-format-buffer)))
@@ -40,38 +67,6 @@
   :config
   (setq clang-format-fallback-style "none"))
 
-(add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-ts-mode))
-
-;; Compilation
-(setq compile-command "")
-(global-set-key (kbd "C-x m") 'compile)
-
-;; Clipboard
-(setq select-enable-clipboard t)
-
-;; Tabs
-(setq-default c-basic-offset 2)
-(setq-default indent-tabs-mode nil) ;; i don't remember is it spaces or tabs mode, nevermind
-(setq-default tab-width 4)
-(setq backward-delete-char-untabify-method nil)
-; (add-hook 'c++-mode-hook
-;           (lambda ()
-;             (c-set-offset 'innamespace 0)))
-
-;; Visuals
-(global-display-line-numbers-mode t)
-(global-hl-line-mode t)
-(electric-pair-mode t)
-;; (setq whitespace-style '(face tabs spaces trailing space-mark tab-mark))
-;; (global-whitespace-mode t)
-(setq dired-listing-switches "-lah --group-directories-first")
-
-;; Disable garbage files
-(setq make-backup-files nil)
-(setq auto-save-default nil)
-
-;; Colorized compilation buffer
 (require 'ansi-color)
 (defun endless/colorize-compilation ()
   "Colorize from `compilation-filter-start' to `point'."
@@ -82,20 +77,5 @@
 (add-hook 'compilation-filter-hook
           #'endless/colorize-compilation)
 
-;; External stuff
-(add-to-list 'load-path (expand-file-name "external" user-emacs-directory))
-(require 'odin-mode)
-
-;; custom.el
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(when (file-exists-p custom-file)
-  (load custom-file))
-
-;; Not working fix for whitespace colors (check 'base16' theme)
-;; (with-eval-after-load 'whitespace
-;;   (custom-set-faces
-;;    '(trailing-whitespace ((t (:background "grey20" :foreground "gray30"))))
-;;    '(whitespace-space ((t (:background nil :foreground "gray30"))))
-;;    '(whitespace-tab ((t (:background nil :foreground "gray30"))))
-;;    '(whitespace-indentation ((t (:background nil :foreground "gray30"))))
-;;    '(whitespace-empty ((t (:background nil :foreground "gray30"))))))
+(load custom-file 'noerror)

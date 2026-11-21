@@ -30,7 +30,7 @@ opt.listchars     =      -- whitespace symbols
     { tab = '» ', trail = '·', space = '·', nbsp = '␣' }
 vim.g.netrw_hide=1       -- show not-hidden (0 = show all, 2 = show only hidden)
 
-cmd.colorscheme("sorbet") -- set colorscheme
+cmd.colorscheme("catppuccin") -- set colorscheme
 
 -- Behaviour
 opt.mouse      = "a"           -- enable mouse in all modes

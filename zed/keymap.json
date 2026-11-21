@@ -152,4 +152,10 @@
       "<": "vim::Outdent",
     },
   },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-h": "workspace::ToggleHelixMode"
+    }
+  }
 ]

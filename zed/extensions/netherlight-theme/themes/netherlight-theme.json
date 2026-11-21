@@ -554,9 +554,9 @@
         "warning.border": "#ffb51566",
         "players": [
           {
-            "cursor": "#32d4acff",
-            "background": "#32d4acff",
-            "selection": "#32d4ac3d"
+            "cursor": "#F4CC99FF",
+            "background": "#F4CC99FF",
+            "selection": "#0000ffff"
           },
           {
             "cursor": "#ff1a1aff",
@@ -791,7 +791,7 @@
             "font_weight": 400
           },
           "type": {
-            "color": "#FFD08EFF",
+            "color": "#F4CC99FF",
             "font_style": null,
             "font_weight": null
           },

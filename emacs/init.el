@@ -33,6 +33,7 @@
 ; (desktop-save-mode 1)
 
 ;; Interface
+(setq frame-resize-pixelwise t)
 (setq ring-bell-function 'ignore)
 (setq visible-bell t)
 (setq scroll-conservatively 101)

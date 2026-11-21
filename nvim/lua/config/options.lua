@@ -25,7 +25,7 @@ opt.termguicolors = true -- enable 24-bit colors
 opt.signcolumn    = "no" -- always show sign column (git, breakpoints)
 opt.cursorline    = true -- highlight current linte
 opt.scrolloff     = 5    -- scroll-off size
-opt.list          = true -- enable whitespace drawing (spaces and tabs)
+opt.list          = false -- enable whitespace drawing (spaces and tabs)
 opt.listchars     =      -- whitespace symbols
     { tab = '» ', trail = '·', space = '·', nbsp = '␣' }
 vim.g.netrw_hide=1       -- show not-hidden (0 = show all, 2 = show only hidden)

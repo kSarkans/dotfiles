@@ -4,11 +4,13 @@
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/")
-                         ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+                         ("nongnu" . "https://elpa.nongnu.org/nongnu/"))
+      )
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
-  (package-install 'use-package))
+  (package-install 'use-package)
+  )
 (eval-when-compile (require 'use-package))
 
 ;; Import PATH from shell
@@ -16,7 +18,8 @@
   :ensure t
   :if (memq window-system '(mac ns x pgtk))
   :config
-  (exec-path-from-shell-initialize))
+  (exec-path-from-shell-initialize)
+  )
 
 ;; Basic settings
 
@@ -36,6 +39,12 @@
 (setq scroll-margin 6)
 (setq global-auto-revert-non-file-buffers t)
 (setq dired-listing-switches "-lah --group-directories-first")
+(setq use-short-answers t)
+(setq completion-ignore-case t)
+(setq read-file-name-completion-ignore-case t)
+(setq read-buffer-completion-ignore-case t)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
 ; (pixel-scroll-precision-mode 1)
 (global-auto-revert-mode 1)
 
@@ -61,22 +70,47 @@
 (require 'odin-mode)
 
 ;; Packages
-(use-package clang-format
-  :ensure t
-  :hook (c-mode-common . (lambda () (local-set-key (kbd "C-c C-f") #'clang-format-buffer)))
-        (c++-ts-mode    . (lambda () (local-set-key (kbd "C-c C-f") #'clang-format-buffer)))
-  :config
-  (setq clang-format-fallback-style "Microsoft"))
+;; (use-package clang-format
+;;   :ensure t
+;;   :hook (c-mode-common . (lambda () (local-set-key (kbd "C-c C-f") #'clang-format-buffer)))
+;;         (c++-ts-mode    . (lambda () (local-set-key (kbd "C-c C-f") #'clang-format-buffer)))
+;;   :config
+;;   (setq clang-format-fallback-style "Microsoft")
+;;   )
+
+(use-package eglot
+  :bind (:map eglot-mode-map
+              ("C-c C-l f" . eglot-format)        ;; format buffer OR region
+              ("C-c C-l F" . eglot-format-buffer) ;; format buffer
+              ("C-c C-l r" . eglot-rename)
+              ("C-c C-l i" . eglot-inlay-hints-mode)
+              )
+  )
 
 (require 'ansi-color)
 (defun endless/colorize-compilation ()
   "Colorize from `compilation-filter-start' to `point'."
   (let ((inhibit-read-only t))
     (ansi-color-apply-on-region
-     compilation-filter-start (point))))
+     compilation-filter-start (point)
+     )
+    )
+  )
 
 (add-hook 'compilation-filter-hook
           #'endless/colorize-compilation)
+
+(use-package corfu
+  :init
+  (global-corfu-mode)
+  :custom
+  (corfu-auto t)
+  )
+
+(use-package which-key
+  :config
+  (which-key-mode 1)
+  )
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'noerror)

@@ -80,11 +80,14 @@
 ;;   )
 
 (use-package eglot
+  :config
+  (add-to-list 'eglot-ignored-server-capabilities :inlayHintProvider)
   :bind (:map eglot-mode-map
               ("C-c C-l f" . eglot-format)        ;; format buffer OR region
               ("C-c C-l F" . eglot-format-buffer) ;; format buffer
               ("C-c C-l r" . eglot-rename)
               ("C-c C-l i" . eglot-inlay-hints-mode)
+              ("C-c C-l d" . eglot-find-declaration)
               )
   )
 

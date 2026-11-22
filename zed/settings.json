@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diagnostics_max_severity": "off",
+  "git": {
+    "inline_blame": {
+      "padding": 7
+    }
+  },
   "window_title_format": "${projectName}${separator}${fileName}",
   "prettier": {
     "parser": "",
@@ -51,7 +57,7 @@
   },
   "diagnostics": {
     "inline": {
-      "enabled": true,
+      "enabled": false,
     },
     "button": true,
   },
@@ -90,6 +96,9 @@
   },
   "buffer_font_family": "ZedMono Nerd Font Propo",
   "gutter": {
+    "git_gutter_width": {
+      "custom": 1.0
+    },
     "breakpoints": true,
     "bookmarks": true,
     "min_line_number_digits": 0,
@@ -98,6 +107,10 @@
     "line_numbers": true,
   },
   "inlay_hints": {
+    "show_other_hints": true,
+    "show_parameter_hints": true,
+    "show_type_hints": true,
+    "show_value_hints": true,
     "enabled": false,
   },
   "show_whitespaces": "selection",
@@ -169,7 +182,7 @@
   "buffer_line_height": "comfortable",
   "terminal": {
     "dock": "bottom",
-    "font_size": 20.0,
+    "font_size": 18.0,
     "show_count_badge": false,
     "font_family": "ZedMono Nerd Font Propo",
   },
@@ -191,11 +204,11 @@
     "trust_all_worktrees": true,
   },
   "ui_font_size": 16.0,
-  "buffer_font_size": 20.0,
+  "buffer_font_size": 18.0,
   "theme": {
     "mode": "dark",
     "light": "GitHub Light",
-    "dark": "Netherlight 2",
+    "dark": "Jellybeans",
   },
   "completions": {
     "lsp_insert_mode": "insert",

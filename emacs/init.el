@@ -44,10 +44,27 @@
 (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
 (setq read-buffer-completion-ignore-case t)
+(setq display-line-numbers 'relative)
+(setq c-default-style "java")
+(setq display-line-numbers-type 'relative)
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 ; (pixel-scroll-precision-mode 1)
 (global-auto-revert-mode 1)
+
+;; Fix line numbers font size on some themes.
+(add-hook 'enable-theme-functions
+          (lambda (_theme)
+            ;; Right line number font size for all themes
+            (set-face-attribute 'line-number nil :inherit 'default :height 1.0)
+            (set-face-attribute 'line-number-current-line nil :inherit 'line-number :height 1.0)
+
+            ;; Less annoying pait symbols highlighting
+            (set-face-attribute 'show-paren-match nil
+                                :background 'unspecified
+                                :foreground 'unspecified
+                                :weight 'bold
+                                )))
 
 (global-display-line-numbers-mode 1)
 (column-number-mode 1)
@@ -61,6 +78,9 @@
 (setq compile-command "")
 (global-set-key (kbd "C-x m") 'compile)
 
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
@@ -71,25 +91,31 @@
 (require 'odin-mode)
 
 ;; Packages
-;; (use-package clang-format
-;;   :ensure t
-;;   :hook (c-mode-common . (lambda () (local-set-key (kbd "C-c C-f") #'clang-format-buffer)))
-;;         (c++-ts-mode    . (lambda () (local-set-key (kbd "C-c C-f") #'clang-format-buffer)))
-;;   :config
-;;   (setq clang-format-fallback-style "Microsoft")
-;;   )
+
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c m a" . mc/mark-all-like-this)
+         ("C-c m l" . mc/edit-lines))
+  :config
+  (dolist (cmd '(c-electric-colon
+                 c-electric-semi&comma
+                 c-electric-brace
+                 c-electric-paren
+                 c-electric-lt-gt
+                 c-electric-slash))
+    (add-to-list 'mc/cmds-to-run-for-all cmd)))
 
 (use-package eglot
   :config
   (add-to-list 'eglot-ignored-server-capabilities :inlayHintProvider)
   :bind (:map eglot-mode-map
-              ("C-c C-l f" . eglot-format)        ;; format buffer OR region
-              ("C-c C-l F" . eglot-format-buffer) ;; format buffer
+              ("C-c C-l f" . eglot-format)
+              ("C-c C-l F" . eglot-format-buffer)
               ("C-c C-l r" . eglot-rename)
               ("C-c C-l i" . eglot-inlay-hints-mode)
-              ("C-c C-l d" . eglot-find-declaration)
-              )
-  )
+              ("C-c C-l d" . eglot-find-declaration)))
 
 (require 'ansi-color)
 (defun endless/colorize-compilation ()
@@ -108,13 +134,13 @@
   :init
   (global-corfu-mode)
   :custom
-  (corfu-auto t)
-  )
+  (corfu-auto t))
 
 (use-package which-key
   :config
-  (which-key-mode 1)
-  )
+  (which-key-mode 1))
+
+;; Post-config
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'noerror)

@@ -21,16 +21,16 @@ opt.hlsearch   = true -- highlight search
 opt.incsearch  = true -- incremental search
 
 -- Visuals
-opt.termguicolors = true -- enable 24-bit colors
-opt.signcolumn    = "no" -- always show sign column (git, breakpoints)
-opt.cursorline    = true -- highlight current linte
-opt.scrolloff     = 5    -- scroll-off size
+opt.termguicolors = true  -- enable 24-bit colors
+opt.signcolumn    = "no"  -- always show sign column (git, breakpoints)
+opt.cursorline    = false -- highlight current linte
+opt.scrolloff     = 5     -- scroll-off size
 opt.list          = false -- enable whitespace drawing (spaces and tabs)
-opt.listchars     =      -- whitespace symbols
+opt.listchars     =       -- whitespace symbols
     { tab = '» ', trail = '·', space = '·', nbsp = '␣' }
-vim.g.netrw_hide=1       -- show not-hidden (0 = show all, 2 = show only hidden)
+vim.g.netrw_hide  = 0     -- show not-hidden (0 = show all, 2 = show only hidden)
 
-cmd.colorscheme("catppuccin") -- set colorscheme
+cmd.colorscheme("jellybeans") -- set colorscheme
 
 -- Behaviour
 opt.mouse      = "a"           -- enable mouse in all modes
